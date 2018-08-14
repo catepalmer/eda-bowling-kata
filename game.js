@@ -10,84 +10,23 @@
 //   [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
 // ]
 
-// Function that adds the total score by adding all the separate frames (whose scores have already been calculated) together
+
 function addScore (frames) {
+  let score = 0
   for (let i = 0; i < frames.length; i++) {
-    let currentFrame = frames[i]
-    let nextFrame = frames[i+1]
-    
+    score += frames[i][0] + frames[i][1]
+    if (frames[i].length === 3) {
+      score += frames[i][2]
+    } else if (frames[i][0] + frames[i][1] === 10) {
+      score += frames[i+1][0]
+      if (frames[i][0] === 10) {
+        if (frames[i+1].length === 3 || frames[i+1][0] < 10) {
+          score += frames[i+1][1]
+        } else {
+          score += frames[i+2][0]
+        }
+      }
+    }
   }
-
-  if (frame[0] + frame[1] < 10) {
-    return frame[0] + frame[1]
-  } else if
+  return score
 }
-
-
-
-
-
-
-// function addScore(frames) {
-//   let scoredFrames = frames.map(frame => {
-//     return scoreFrame(frame)
-//   })
-//   return scoredFrames
-// }
-
-// function addTotalScore(scoredFrames) {
-//   return scoredFrames.reduce((scoreAccumulator, frameScore) => {
-//     return scoreAccumulator + frameScore
-//   })
-// }
-
-// function scoreFrame(frame) {
-//   if (frame[0] + frame[1] < 10) {
-//     return scoreRegFrame(frame)
-//   } else if (frame[0] + frame[1] == 10)
-// }
-
-
-// function scoreRegFrame(frame) {
-
-// }
-
-// function scoreStrike(frame) {
-
-// }
-
-// function scoreSpare(frame) {
-
-// }
-
-// function scoreLastFrame(frame) {
-
-// }
-
-// function isRegFrame(frame) {
-
-// }
-
-// function isStrike(frame) {
-
-// }
-
-// function isSpare(frame) {
-
-// }
-
-// function isLastFrame(frame) {
-
-// }
-
-
-
-
-// function addScore (frames) {
-//     let scoredFrames = frames.map(frame => {
-//         return scoreFrame(frame)
-//     })
-//     return scoredFrames.reduce((total, value) => {
-//         return total + value
-//     })
-// }
