@@ -11,11 +11,66 @@
 // ]
 
 
-function addScore (frames) {
+function addScore(frames) {
+  let scoredFrames = frames.map(frame => {
+    return scoreFrame(frame)
+  })
+  return scoredFrames
+}
+
+function addTotalScore(scoredFrames) {
+  return scoredFrames.reduce((scoreAccumulator, frameScore) => {
+    return scoreAccumulator + frameScore
+  })
+}
+
+function scoreFrame(frame) {
+  if (frame[0] + frame[1] < 10) {
+    return scoreRegFrame(frame)
+  } else if (frame[0] + frame[1] == 10)
+}
+
+
+function scoreRegFrame(frame) {
+
+}
+
+function scoreStrike(frame) {
+
+}
+
+function scoreSpare(frame) {
+
+}
+
+function scoreLastFrame(frame) {
+
+}
+
+function isRegFrame(frame) {
+
+}
+
+function isStrike(frame) {
+
+}
+
+function isSpare(frame) {
+
+}
+
+function isLastFrame(frame) {
 
 }
 
 
-function scoreFrame (frame) {
-    
-}
+
+
+// function addScore (frames) {
+//     let scoredFrames = frames.map(frame => {
+//         return scoreFrame(frame)
+//     })
+//     return scoredFrames.reduce((total, value) => {
+//         return total + value
+//     })
+// }
